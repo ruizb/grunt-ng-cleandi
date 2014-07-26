@@ -1,0 +1,13 @@
+{
+  "name": "grunt-clean-dep",
+  "version": "0.1.0",
+  "description": "Clean the unused dependencies of you AngularJS components.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ruizb/grunt-clean-dep.git"
+  },
+  "author": "Benoit Ruiz",
+  "bugs": {
+    "url": "https://github.com/ruizb/grunt-clean-dep/issues"
+  }
+}
