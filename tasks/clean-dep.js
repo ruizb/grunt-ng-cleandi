@@ -15,6 +15,10 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('cleandep', 'Clean the unused dependencies of your AngularJS components', function (target) {
 
+    if (typeof target !== 'string') {
+      grunt.fatal('You must specify a file name or a directory name to run this task.\nUsage: grunt cleandep:file_or_dir_name');
+    }
+
     ///////////////////////////////////////////////////////////////
     // REGEX: captures the dependencies of the Angular component //
     ///////////////////////////////////////////////////////////////
