@@ -38,8 +38,8 @@ module.exports = function (grunt) {
 
     // if the user wants to clean a dependency even if it's in some comments
     var checkComments = grunt.option('comments') || 
-                        grunt.config(self.name, 'comments') || 
-                        grunt.config(self.name, 'options', 'comments') || 
+                        grunt.config([self.name, 'comments']) || 
+                        grunt.config([self.name, 'options', 'comments']) || 
                         false;
 
     // list of files the task will read and clean
@@ -154,7 +154,7 @@ module.exports = function (grunt) {
           // write in the file with the dependencies cleaned //
           /////////////////////////////////////////////////////
           if (removedDependencies.length > 0) {
-            grunt.log.success('Removed dependencies: ' + removedDependencies.join(', '));
+            grunt.log.success('Removed dependencies of the file "' + file + '": ' + removedDependencies.join(', '));
             grunt.file.write(file, fileContentWithComment);
           }
 
