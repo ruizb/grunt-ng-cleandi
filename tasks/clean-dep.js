@@ -40,7 +40,7 @@ module.exports = function (grunt) {
     var checkComments = grunt.option('comments') || 
                         grunt.config(self.name, 'comments') || 
                         grunt.config(self.name, 'options', 'comments') || 
-                        false; 
+                        false;
 
     // list of files the task will read and clean
     var files = [];
