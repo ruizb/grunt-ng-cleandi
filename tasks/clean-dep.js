@@ -15,6 +15,8 @@ module.exports = function (grunt) {
    */
   grunt.registerTask('cleandep', 'Clean the unused dependencies of your AngularJS components', function (target) {
 
+    var self = this;
+
     if (typeof target !== 'string') {
       grunt.fatal('You must specify a file name or a directory name to run this task.\nUsage: grunt cleandep:file_or_dir_name');
     }
@@ -35,7 +37,10 @@ module.exports = function (grunt) {
     var commentRegex = /(?:\/\*([^*]+|[\r\n]|(?:\*+(?:[^*\/]|[\r\n])))*\*+\/)|(?:\/\/\s*(.*))/g;
 
     // if the user wants to clean a dependency even if it's in some comments
-    var checkComments = grunt.option('comments') || false;
+    var checkComments = grunt.option('comments') || 
+                        grunt.config(self.name, 'comments') || 
+                        grunt.config(self.name, 'options', 'comments') || 
+                        false; 
 
     // list of files the task will read and clean
     var files = [];
