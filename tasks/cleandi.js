@@ -144,7 +144,7 @@ module.exports = function (grunt) {
             }
             
             ////////////////////////////////////////////////////////
-            // if the dependency is not used, clean the inejction //
+            // if the dependency is not used, clean the injection //
             ////////////////////////////////////////////////////////
             if (total === base) {
               removedDependencies.push(dep);
