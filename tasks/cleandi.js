@@ -61,9 +61,11 @@ module.exports = function (grunt) {
 
       var isFullFormForMin, // true if the component is declared for ngMin, false otherwise
           fileContent, // original content of the file
-          inComments = []; // array containing the content of all the file comments
+          inComments; // array containing the content of all the file comments
 
       files.forEach(function (file) {
+
+        inComments = [];
 
         if (grunt.file.isFile(file)) {
 
@@ -154,7 +156,7 @@ module.exports = function (grunt) {
           // write in the file with the dependencies cleaned //
           /////////////////////////////////////////////////////
           if (removedDependencies.length > 0) {
-            grunt.log.success('Removed dependencies of the file "' + file + '": ' + removedDependencies.join(', '));
+            grunt.log.success('Removed dependency injections of the file "' + file + '": ' + removedDependencies.join(', '));
             grunt.file.write(file, fileContentWithComment);
           }
 
