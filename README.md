@@ -1,4 +1,4 @@
-# grunt-clean-dep
+# grunt-clean-di
 
 > Clean unused dependency injections from your AngularJS components.
 
@@ -9,7 +9,7 @@ This plugin requires Grunt `~0.4.0`.
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Right now, this Grunt plugin is not deployed on the [npm registry](https://www.npmjs.org/), so add the following line to your `devDependencies` object in the `package.json` file:
 
 ```
-"grunt-clean-dep": "git://github.com/ruizb/grunt-clean-dep.git"
+"grunt-clean-di": "git://github.com/ruizb/grunt-clean-di.git"
 ```
 
 To install the plugin, just run `npm install` in the terminal in your project directory.
@@ -17,12 +17,12 @@ To install the plugin, just run `npm install` in the terminal in your project di
 Once the plugin has been installed, it may be enabled inside your Gruntfile with the following line:
 
 ```
-grunt.loadNpmTasks('grunt-clean-dep');
+grunt.loadNpmTasks('grunt-clean-di');
 ```
 
-## Cleandep task
+## CleanDI task
 
-*Run this task with the `grunt cleandep` command.*
+*Run this task with the `grunt cleandi` command.*
 
 ### Settings
 
@@ -61,19 +61,19 @@ If comments is `false`, the output will stay the same as the input (because ther
 There are 3 ways to pass in the option to the task:
 
 ```
-grunt cleandep:myFile --comments
+grunt cleandi:myFile --comments
 ```
 
 ```
   // somewhere in the Gruntfile
-  cleandep: {
+  cleandi: {
     comments: true
   }
 ```
 
 ```
   // somewhere in the Gruntfile
-  cleandep: {
+  cleandi: {
     options: {
       comments: true
     }

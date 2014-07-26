@@ -13,12 +13,12 @@ module.exports = function (grunt) {
    * Grunt task
    * @param  {string} target A file name or a directory name
    */
-  grunt.registerTask('cleandep', 'Clean the unused dependencies of your AngularJS components', function (target) {
+  grunt.registerTask('cleandi', 'Clean the unused dependencies of your AngularJS components', function (target) {
 
     var self = this;
 
     if (typeof target !== 'string') {
-      grunt.fatal('You must specify a file name or a directory name to run this task.\nUsage: grunt cleandep:file_or_dir_name');
+      grunt.fatal('You must specify a file name or a directory name to run this task.\nUsage: grunt cleandi:file_or_dir_name');
     }
 
     ///////////////////////////////////////////////////////////////
