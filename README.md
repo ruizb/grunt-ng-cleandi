@@ -1,4 +1,4 @@
-# grunt-clean-di
+# grunt-clean-dep
 
 > Clean unused dependency injections from your AngularJS components.
 
@@ -9,7 +9,7 @@ This plugin requires Grunt `~0.4.0`.
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Right now, this Grunt plugin is not deployed on the [npm registry](https://www.npmjs.org/), so add the following line to your `devDependencies` object in the `package.json` file:
 
 ```
-"grunt-clean-di": "git://github.com/ruizb/grunt-clean-di.git"
+"grunt-clean-dep": "git://github.com/ruizb/grunt-clean-dep.git"
 ```
 
 To install the plugin, just run `npm install` in the terminal in your project directory.
@@ -17,12 +17,12 @@ To install the plugin, just run `npm install` in the terminal in your project di
 Once the plugin has been installed, it may be enabled inside your Gruntfile with the following line:
 
 ```
-grunt.loadNpmTasks('grunt-clean-di');
+grunt.loadNpmTasks('grunt-clean-dep');
 ```
 
-## CleanDI task
+## Cleandep task
 
-*Run this task with the `grunt cleandi` command.*
+*Run this task with the `grunt cleandep` command.*
 
 ### Settings
 
@@ -31,7 +31,6 @@ For now, there is only one option available.
 #### comments
 
 Type: `Boolean`
-
 If true, the algorithm will remove unused dependency injections from AngularJS components even if these dependencies are used in some comments. If false, only the uncommented dependencies will be counted in the algorithm. Default value is `false`.
 
 ##### Example
@@ -62,24 +61,46 @@ If comments is `false`, the output will stay the same as the input (because ther
 There are 3 ways to pass in the option to the task:
 
 ```
-grunt cleandi:myFile --comments
+grunt cleandep:myFile --comments
 ```
 
 ```
   // somewhere in the Gruntfile
-  cleandi: {
+  cleandep: {
     comments: true
   }
 ```
 
 ```
   // somewhere in the Gruntfile
-  cleandi: {
+  cleandep: {
     options: {
       comments: true
     }
   }
 ```
+
+## Plugin not working...
+
+Right now, this Grunt plugin works only if you follow some conventions for writing your AngularJS components. The *head* of the file must be like one of these 2 examples:
+
+```
+angular
+  .module('myModule')
+  .component('MyComponent', function (dep1, dep2) {
+    // ...
+  });
+```
+
+```
+angular
+  .module('myModule')
+  .component('MyComponent', ['dep1', 'dep2', function (dep1, dep2) {
+    // ...
+  }]);
+```
+
+Otherwise, the plugin might nor work as expected. You are free to contribute to this project by forking it and adding regular expressions that handle new conventions! :) 
 
 ## Release History
 
