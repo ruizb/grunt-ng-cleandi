@@ -31,6 +31,7 @@ For now, there is only one option available.
 #### comments
 
 Type: `Boolean`
+
 If true, the algorithm will remove unused dependency injections from AngularJS components even if these dependencies are used in some comments. If false, only the uncommented dependencies will be counted in the algorithm. Default value is `false`.
 
 ##### Example
