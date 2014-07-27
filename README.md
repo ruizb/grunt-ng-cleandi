@@ -110,4 +110,4 @@ Otherwise, the plugin might not work as expected. You are free to contribute to 
 
 ***
 
-Task submitted by [Benoit Ruiz](linkedin.com/in/ruizbenoit/).
+Task submitted by [Benoit Ruiz](http://linkedin.com/in/ruizbenoit/).
