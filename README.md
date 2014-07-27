@@ -82,7 +82,7 @@ grunt cleandep:myFile --comments
 
 ## Plugin not working...
 
-Right now, this Grunt plugin works only if you follow some conventions for writing your AngularJS components. The *head* of the file must be like one of these 2 examples:
+Right now, this Grunt plugin only works if you follow specific conventions for writing your AngularJS components. The *head* of the file must be like one of these 2 examples:
 
 ```
 angular
@@ -100,7 +100,7 @@ angular
   }]);
 ```
 
-Otherwise, the plugin might nor work as expected. You are free to contribute to this project by forking it and adding regular expressions that handle new conventions! :) 
+Otherwise, the plugin might not work as expected. You are free to contribute to this project by forking it and adding regular expressions that handle new conventions! :) 
 
 ## Release History
 
