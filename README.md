@@ -1,4 +1,4 @@
-# grunt-clean-di
+# grunt-ng-cleandi
 
 > Clean unused dependency injections from your AngularJS components.
 
@@ -9,7 +9,7 @@ This plugin requires Grunt `~0.4.0`.
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Right now, this Grunt plugin is not deployed on the [npm registry](https://www.npmjs.org/), so add the following line to your `devDependencies` object in the `package.json` file:
 
 ```
-"grunt-clean-di": "git://github.com/ruizb/grunt-clean-di.git"
+"grunt-ng-cleandi": "git://github.com/ruizb/grunt-ng-cleandi.git"
 ```
 
 To install the plugin, just run `npm install` in the terminal in your project directory.
@@ -17,7 +17,7 @@ To install the plugin, just run `npm install` in the terminal in your project di
 Once the plugin has been installed, it may be enabled inside your Gruntfile with the following line:
 
 ```
-grunt.loadNpmTasks('grunt-clean-di');
+grunt.loadNpmTasks('grunt-ng-cleandi');
 ```
 
 ## CleanDI task
@@ -80,7 +80,7 @@ grunt cleandi:myFile --comments
   }
 ```
 
-## Plugin not working...
+## Plugin not working?
 
 Right now, this Grunt plugin only works if you follow specific conventions for writing your AngularJS components. The *head* of the file must be like one of these 2 examples:
 
@@ -104,9 +104,9 @@ Otherwise, the plugin might not work as expected. You are free to contribute to 
 
 ## Release History
 
-| Date       | Tag    | Description               |
-|------------|--------|---------------------------|
-| 2014-07-26 | v0.1.0 | First release of the task |
+| Date       | Tag    | Description   |
+|------------|--------|---------------|
+| 2014-07-26 | v0.1.0 | First release |
 
 ***
 
