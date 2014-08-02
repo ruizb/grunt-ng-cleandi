@@ -24,12 +24,12 @@ module.exports = function (grunt) {
     ///////////////////////////////////////////////////////////////
     // REGEX: captures the dependencies of the Angular component //
     ///////////////////////////////////////////////////////////////
-    var depRegex = /(?!\/\*)\.(?:controller|directive|factory|service|provider|filter)\('(?:.+)',\s*\[?(?:(?:'(?:.+),\s*),\s*)?function\s*\((.*(?:,\s*)?)\)\s*{(?!\*\/)/;
+    var depRegex = /(?!\/\*)\.(?:controller|directive|factory|service|provider|filter)\((?:'|")(?:.+)(?:'|"),\s*\[?(?:(?:'(?:.+),\s*),\s*)?function\s*\((.*(?:,\s*)?)\)\s*{(?!\*\/)/;
 
     ///////////////////////////////////////////////////////////////
     // REGEX: detects if a component has been declared for ngMin //
     ///////////////////////////////////////////////////////////////
-    var minFormRegex = /\.(?:controller|directive|factory|service|provider|filter)\('(?:.+)',\s*(\[){1}/;
+    var minFormRegex = /\.(?:controller|directive|factory|service|provider|filter)\((?:'|")(?:.+)(?:'|"),\s*(\[){1}/;
 
     /////////////////////////////////////////////////////////////
     // REGEX: captures the content of the comments in the file //
@@ -113,7 +113,7 @@ module.exports = function (grunt) {
             ////////////////////////////////////////////////////////////////////////////
             // REGEX: captures the occurrences of 'dep' in the dependency injections  //
             ////////////////////////////////////////////////////////////////////////////
-            replaceOccurrencesRegex = new RegExp("((?:'?" + escapeRegExp(dep) + "'?,\\s*)|(?:,\\s*'?" + escapeRegExp(dep) + "(?!\\w+)'?))(?!(?:.+)\\*\\/)", 'g');
+            replaceOccurrencesRegex = new RegExp("((?:(?:'|\")?" + escapeRegExp(dep) + "(?:'|\")?,\\s*)|(?:,\\s*(?:'|\")?" + escapeRegExp(dep) + "(?!\\w+)(?:'|\")?))(?!(?:.+)\\*\\/)", 'g');
 
             ////////////////////////////////////////////////
             // REGEX: catch 'dep' occurrences in the file //
