@@ -26,11 +26,22 @@ grunt.loadNpmTasks('grunt-ng-cleandi');
 
 ### Settings
 
-For now, there is only one option available.
+#### files
+
+Type: `Array`
+
+Contains string patterns of the files that will be processed.
+
+##### Example
+
+```
+files: ['src/app/**/*.js']
+```
 
 #### comments
 
 Type: `Boolean`
+
 If true, the algorithm will remove unused dependency injections from AngularJS components even if these dependencies are used in some comments. If false, only the uncommented dependencies will be counted in the algorithm. Default value is `false`.
 
 ##### Example
@@ -100,7 +111,9 @@ angular
   }]);
 ```
 
-Otherwise, the plugin might not work as expected. You are free to contribute to this project by forking it and adding regular expressions that handle new conventions! :) 
+Otherwise, the plugin might not work as expected. You are free to contribute to this project by forking it and adding regular expressions that handle other conventions! :) 
+
+You can run the task in the terminal with the option `--debug` to have more details on the task execution.
 
 ## Release History
 
