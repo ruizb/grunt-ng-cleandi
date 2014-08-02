@@ -5,7 +5,7 @@ module.exports = function (grunt) {
    * @param  {string} string 
    * @return {string}        
    */
-  function escapeRegExp(string){
+  function escapeRegExp(string) {
     return string.replace(/([.*+?^${}()|\[\]\/\\])/g, "\\$1");
   }
   
@@ -13,13 +13,41 @@ module.exports = function (grunt) {
    * Grunt task
    * @param  {string} target A file name or a directory name
    */
-  grunt.registerTask('cleandi', 'Clean the unused dependencies of your AngularJS components', function (target) {
+  grunt.registerTask('cleandi', 'Clean the unused dependency injections of your AngularJS components', function (target) {
 
     var self = this;
 
-    if (typeof target !== 'string') {
-      grunt.fatal('You must specify a file name or a directory name to run this task.\nUsage: grunt cleandi:file_or_dir_name');
+    // list of files the task will clean
+    var files = grunt.config([self.name, 'files']) || 
+                grunt.config([self.name, 'options', 'files']);
+
+    if (!files && typeof target !== 'string') {
+      grunt.fatal('You must specify a list of files in your Gruntfile or a (file|dir)name as a task parameter to run this task.\nUsage: grunt cleandi:file_or_dir_name');
     }
+
+    // parameter overrides the config
+    if (typeof target === 'string') {
+      if (grunt.file.isDir(target)) {
+        files = grunt.file.expand(target + '/**/*.js');
+      }
+      else if (grunt.file.isFile(target)) {
+        files.push(target);
+      }
+      else {
+        grunt.log.writeln('No file or directory "' + target + '" was found. Checking Gruntfile config...');
+        if (!files) {
+          grunt.fatal('Gruntfile config "files" or "options.files" not found. Task aborted.');
+        }
+        else {
+          files = grunt.file.expand(files);
+        }
+      }
+    }
+    else {
+      files = grunt.file.expand(files);
+    }
+
+    grunt.log.debug('CleanDI task will be run on ' + files.length + ' files:\n\t' + files.join(',\n\t'));
 
     ///////////////////////////////////////////////////////////////
     // REGEX: captures the dependencies of the Angular component //
@@ -41,20 +69,6 @@ module.exports = function (grunt) {
                         grunt.config([self.name, 'comments']) || 
                         grunt.config([self.name, 'options', 'comments']) || 
                         false;
-
-    // list of files the task will read and clean
-    var files = [];
-    if (grunt.file.isDir(target)) {
-      files = grunt.file.expand(target + '/*');
-      // no recursion, only the files of the dir given as target
-      // TODO recursion
-    }
-    else if (grunt.file.isFile(target)) {
-      files.push(target);
-    }
-    else {
-      grunt.fatal('No file or directory "' + target + '" was found.');
-    }
 
     // if there are files to clean
     if (files.length > 0) {
