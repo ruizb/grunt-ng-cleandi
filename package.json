@@ -1,13 +1,13 @@
 {
-  "name": "grunt-clean-di",
+  "name": "grunt-ng-cleandi",
   "version": "0.1.0",
   "description": "Clean the unused dependency injections of your AngularJS components.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ruizb/grunt-clean-di.git"
+    "url": "git://github.com/ruizb/grunt-ng-cleandi.git"
   },
   "author": "Benoit Ruiz",
   "bugs": {
-    "url": "https://github.com/ruizb/grunt-clean-di/issues"
+    "url": "https://github.com/ruizb/grunt-ng-cleandi/issues"
   }
 }
